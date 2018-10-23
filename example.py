@@ -1,10 +1,13 @@
-##
-##                          EXAMPLE
-##
+"""
+=================================================================
+Simulation Study Comparing Random Boosting with Gradient Boosting
+=================================================================
 
-## Author: Tobias Krabel
-## Compares Friedman (2001)'s standard Gradient Boosting framework with
-## Random Tree Depth Injection both.
+Author: Tobias Krabel
+
+Compares Friedman (2001)'s standard Gradient Boosting framework with
+Random Tree Depth Injection.
+"""
 
 import random_boost
 from random_boost.random_boost import RandomBoostingRegressor, RandomBoostingClassifier
