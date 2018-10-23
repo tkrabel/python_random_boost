@@ -2,7 +2,7 @@
 ##                          EXAMPLE
 ##
 
-## Tobias Krabel
+## Author: Tobias Krabel
 ## Compares Friedman (2001)'s standard Gradient Boosting framework with
 ## Random Tree Depth Injection both.
 
@@ -35,7 +35,7 @@ PARAMS = {
 NOISE = 1
 N_SAMPLES = 20000
 N_FEATURES = 25
-N_ROUNDS = 3
+N_ROUNDS = 5
 
 # Results
 df_result = pd.DataFrame(columns=['run', 'model', 'rmse', 'mae', 'time_sec'])
@@ -50,7 +50,7 @@ for i in range(N_ROUNDS):
                                      n_features=N_FEATURES,
                                      noise=NOISE)
 
-    print(f'...fit Random Boost', end=' ')
+    print(f'...fit Random Boost')
     start_time = time.time()
     rb = RandomBoostingRegressor(n_estimators=PARAMS['n_estimators'],
                                  learning_rate=PARAMS['learning_rate'],
@@ -59,7 +59,7 @@ for i in range(N_ROUNDS):
     time_rb = time.time() - start_time
     print(f'... took {time_rb} seconds')
 
-    print(f'...fit MART', end=' ')
+    print(f'...fit MART')
     start_time = time.time()
     gb = GradientBoostingRegressor(n_estimators=PARAMS['n_estimators'],
                                    learning_rate=PARAMS['learning_rate'],
