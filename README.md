@@ -15,3 +15,5 @@ rb.depths
 `example.py` contains an example of how to use Random Boosting.
 
 Please feel free to test and give feedback on the algorithm. Also don't hesitate to contact me if you feel like it. 
+
+FYI: I am currently working on commiting my code to the scikit-learn package. I guess that will happen in form of an argument to `GradientBoostingReggressor` (along the lines of `GradientBoostingReggressor(..., random_depth=True)`), so stay tuned!
