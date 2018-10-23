@@ -24,8 +24,6 @@ NOISE = 1
 N_SAMPLES = 20000
 N_FEATURES = 25
 N_ROUNDS = 5
-N_CORES = 5
-N_FOLDS = 5
 
 # Results
 df_result = pd.DataFrame(columns=['run', 'model', 'rmse', 'mae'])
