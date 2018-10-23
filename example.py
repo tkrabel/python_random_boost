@@ -11,7 +11,6 @@ from random_boost.random_boost import RandomBoostingRegressor, RandomBoostingCla
 
 from sklearn.datasets import make_regression
 from sklearn.ensemble import GradientBoostingRegressor, GradientBoostingClassifier
-from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 import pandas as pd 
