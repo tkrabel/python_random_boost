@@ -12,8 +12,11 @@ rb.fit(...)
 rb.depths
 ```
 
-`example.py` contains an example of how to use Random Boosting in regression.
+`example.py` contains an example of how to use Random Boosting in regression. 
+
+Note that you can also use Random Boost by typing `GradientBoostingRegressor(random_depth=True)` or `GradientBoostingClassifier(random_depth=True)` (In fact, I implemented Random Boost as a sub- and wrapper class of the respective Gradient Boosting classes), which makes it usable as a simple add-on just like Stochastic Gradient Boosting.
 
 Please feel free to test and give feedback on the algorithm. Also don't hesitate to contact me if you feel like it. 
 
-FYI: I am currently working on commiting my code to the scikit-learn package. I guess that will happen in form of an argument to `GradientBoostingRegressor` and `GradientBoostingClassifier` (along the lines of `GradientBoostingRegressor(..., random_depth=True)`) since then the sklearn package is much easier to maintain. So stay tuned!
+FYI: 
+I was issuing a feature request to the scikit-learn package so that Random Boost becomes part of the package. Understandably, they won't include it until it becomes mature and popular enough. I seem maturity is not an issue as it is just a small alteration of the code base, and I will now work on the popularity part by writing a paper. So stay tuned!
