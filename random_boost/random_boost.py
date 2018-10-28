@@ -14,6 +14,12 @@ The module structure is the following:
 
 - ``GradientBoostingRegressor`` implements gradient boosting for
   regression problems.
+
+- ``RandomBoostingClassifier`` implements random boosting for classification 
+  problems. It is a wrapper class of ``GradientBoostingClassifier``.
+  
+- ``RandomBoostingRegressor`` implements random boosting for regression 
+  problems. It is a wrapper class of ``GradientBoostingRegressor``.
 """
 
 from __future__ import print_function
