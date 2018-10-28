@@ -19,4 +19,4 @@ Note that you can also use Random Boost by typing `GradientBoostingRegressor(ran
 Please feel free to test and give feedback on the algorithm. Also don't hesitate to contact me if you feel like it. 
 
 FYI: 
-I was issuing a feature request to the scikit-learn package so that Random Boost becomes part of the package. Understandably, they won't include it until it becomes mature and popular enough. I seem maturity is not an issue as it is just a small alteration of the code base, and I will now work on the popularity part by writing a paper. So stay tuned!
+I was issuing a feature request to the scikit-learn package so that Random Boost becomes part of the package. Understandably, the maintaining team won't include it until it becomes mature and popular enough. I deem maturity not to be an issue as it is just a small alteration of the code base, and I will now work on the popularity part by writing a paper. So stay tuned!
