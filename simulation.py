@@ -29,16 +29,16 @@ def mae(y_true, y_pred):
     return mean_absolute_error(y_true, y_pred)
 
 # Constants
-N_SAMPLES = 10000
-N_INPUTS = 10
+N_SAMPLES = 20000
+N_INPUTS = 20
 N_COMPONENTS = 20
 SIGNAL_TO_NOISE = 1.0
 N_ROUNDS = 5
 
 PARAMS = {
-    'learning_rate':0.1,
-    'max_depth':6,
-    'n_estimators':100
+    'learning_rate': 0.1,
+    'max_depth': 5,
+    'n_estimators': 100
 }
 
 # Set seed
