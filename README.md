@@ -12,7 +12,7 @@ rb.fit(...)
 rb.depths
 ```
 
-`example.py` contains an example of how to use Random Boosting in regression. 
+`simulation.py` contains an example of how to use Random Boosting in regression. 
 
 Note that you can also use Random Boost by typing `GradientBoostingRegressor(random_depth=True)` or `GradientBoostingClassifier(random_depth=True)` (In fact, I implemented Random Boost as a sub- and wrapper class of the respective Gradient Boosting classes), which makes it usable as a simple add-on just like Stochastic Gradient Boosting.
 
