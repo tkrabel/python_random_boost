@@ -20,6 +20,7 @@ import pandas as pd
 import numpy as np
 
 import time
+import datetime
 
 # Homegrown
 def rmse(y_true, y_pred):
@@ -33,7 +34,7 @@ N_SAMPLES = 20000
 N_INPUTS = 20
 N_COMPONENTS = 20
 SIGNAL_TO_NOISE = 1.0
-N_ROUNDS = 5
+N_ROUNDS = 100
 
 PARAMS = {
     'learning_rate': 0.1,
@@ -48,7 +49,7 @@ np.random.seed(0)
 df_result = pd.DataFrame(columns=['run', 'model', 'rmse', 'mae', 'time_sec'])
 
 for i in range(N_ROUNDS):
-    print(f'Round #{i+1}')
+    print(f'Round #{i+1} of {N_ROUNDS}')
 
     # Data
     print('... generate Friedman data')
@@ -95,3 +96,7 @@ for i in range(N_ROUNDS):
         ignore_index=True
     )
 
+# Save to file
+now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+df_result.to_csv(f'data/simulation_results/rb-vs-xgb-lr{PARAMS["learning_rate"]}-d{PARAMS["max_depth"]}-nest{PARAMS["n_estimators"]}-nocv-{now}',
+                 index=False)
