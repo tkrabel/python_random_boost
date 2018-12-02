@@ -98,5 +98,5 @@ for i in range(N_ROUNDS):
 
 # Save to file
 now = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-df_result.to_csv(f'data/simulation_results/rb-vs-xgb-lr{PARAMS["learning_rate"]}-d{PARAMS["max_depth"]}-nest{PARAMS["n_estimators"]}-nocv-{now}',
+df_result.to_csv(f'data/simulation_results/rb-vs-xgb-lr{PARAMS["learning_rate"]}-d{PARAMS["max_depth"]}-nest{PARAMS["n_estimators"]}-nocv-{now}.csv',
                  index=False)
