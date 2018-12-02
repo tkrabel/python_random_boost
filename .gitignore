@@ -2,3 +2,4 @@ venv
 .vscode
 data
 R
+__pychache__
