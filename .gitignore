@@ -2,4 +2,6 @@ venv
 .vscode
 data
 R
-__pychache__
+random_boost/__pychache__
+.Rproj.user
+*.Rproj
