@@ -5,3 +5,4 @@ R
 random_boost/__pycache__
 .Rproj.user
 *.Rproj
+*.pyc
