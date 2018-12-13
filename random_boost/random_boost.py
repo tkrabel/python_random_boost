@@ -3017,7 +3017,7 @@ class RandomBoostingRegressor(GradientBoostingRegressor):
                  min_impurity_split=None, init=None, random_state=None,
                  max_features=None, alpha=0.9, verbose=0, max_leaf_nodes=None,
                  warm_start=False, presort='auto', validation_fraction=0.1,
-                 n_iter_no_change=None, tol=1e-4, random_depth=False):
+                 n_iter_no_change=None, tol=1e-4):
 
         super(RandomBoostingRegressor, self).__init__(
             loss=loss, learning_rate=learning_rate, n_estimators=n_estimators,
