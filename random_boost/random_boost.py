@@ -1180,7 +1180,7 @@ class BaseGradientBoosting(six.with_metaclass(ABCMeta, BaseEnsemble)):
             if self.random_depth:
                 # draw random depth btw 1 and max_depth (inclusive)
                 depth = np.random.randint(1, self.max_depth+1) 
-                self.depths_[i] = depth
+                #self.depths_[i] = depth
             else: 
                 depth = self.max_depth
             
