@@ -5,6 +5,7 @@ from scipy.stats import ortho_group
 def gen_friedman_data(n_samples, 
                       n_inputs, 
                       n_components=20, 
+                      n_noise=0,
                       stn=1.0,
                       random_state=None):
     """Friedman (2001) random function generator
@@ -21,7 +22,11 @@ def gen_friedman_data(n_samples,
         The number of inputs considered to build the target function.
 
     n_components: int, optional (default=20)
-        The number of components the formula has that computes th target.
+        The number of components the formula has that computes the target.
+        E.g. y = x1*x2 + x3^2 - x4 has thee components.
+
+    n_noise: int, optional (default=0)
+        The number of noise variables (follow a standard normal distribution).
 
     stn: float, optional (default=1.0)
         signal-to-noise-ratio that determines variance of error distribution. 
@@ -70,5 +75,9 @@ def gen_friedman_data(n_samples,
     # Add error term according to signal-to-noise-ratio
     sd_norm = stn * np.mean(np.abs(y - np.median(y)))
     y += np.random.normal(0, sd_norm, size=n_samples)
+
+    # Add noise variables to design matrix
+    E = np.random.randn(n_samples, n_noise)
+    X = np.hstack((X, E))
 
     return [X, y]
