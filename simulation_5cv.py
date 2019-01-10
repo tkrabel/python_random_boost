@@ -35,12 +35,12 @@ N_SAMPLES = 20000
 N_INPUTS = 20
 N_COMPONENTS = 20
 SIGNAL_TO_NOISE = 1.0
-N_ROUNDS = 100
+N_ROUNDS = 15
 
 PARAMS = {
     'learning_rate': [0.1],
-    'max_depth': [4, 5, 6, 7],
-    'n_estimators': [75, 100, 125]
+    'max_depth': [_ for _ in range(2, 9)],
+    'n_estimators': [75, 100, 125, 150, 175]
 }
 
 # Set seed
@@ -49,6 +49,7 @@ np.random.seed(0)
 # Results
 df_result = pd.DataFrame(columns=['run', 'model', 'rmse', 'mae', 'time_sec'])
 
+START = time.time()
 for i in range(N_ROUNDS):
     print(f'Round #{i+1} of {N_ROUNDS}')
 
@@ -65,7 +66,7 @@ for i in range(N_ROUNDS):
     print(f'... fit Random Boost')
     start_time = time.time()
     # Little trick: inheritance doesn't seem to work properly
-    model = RandomBoostingRegressor(n_estimators=np.max(PARAMS['n_estimators']))
+    model = RandomBoostingRegressor()
     rb = GridSearchCV(model, param_grid=PARAMS, cv=5, n_jobs=7)
     rb = rb.fit(X_train, y_train)
     time_rb = time.time() - start_time
@@ -103,3 +104,5 @@ str_md = ",".join([str(_) for _ in PARAMS["max_depth"]])
 str_ne = ",".join([str(_) for _ in PARAMS["n_estimators"]])
 df_result.to_csv(f'data/simulation_results/rb-vs-xgb-lr{str_lr}-d{str_md}-nest{str_ne}-5cv-{now}.csv',
                  index=False)
+SECS = time.time() - START 
+print(f'Simulation took {SECS / N_ROUNDS} seconds per round ({SECS} in total)')
