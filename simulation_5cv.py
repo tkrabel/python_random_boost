@@ -32,9 +32,10 @@ def mae(y_true, y_pred):
 
 # Constants
 N_SAMPLES = 20000
-N_INPUTS = 20
+N_INPUTS = 10
 N_COMPONENTS = 20
 SIGNAL_TO_NOISE = 1.0
+N_NOISE = 5
 N_ROUNDS = 15
 
 PARAMS = {
@@ -58,6 +59,7 @@ for i in range(N_ROUNDS):
     X, y = gen_friedman_data(n_samples=N_SAMPLES, 
                              n_inputs=N_INPUTS,
                              n_components=N_COMPONENTS,
+                             n_noise=N_NOISE,
                              stn=SIGNAL_TO_NOISE)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25)
