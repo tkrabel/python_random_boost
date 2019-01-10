@@ -58,16 +58,19 @@ def gen_friedman_data(n_samples,
 
     # For each component of function
     for l in range(n_components):
+        # Number of features in component
         nl = int(nls[l]) if nls[l] <= n_inputs else n_inputs
         a = alphas[l]
         idx = np.random.choice(range(n_inputs), nl, False)
         Z = X[:, idx]
         mu = mus[:, idx]
+        
+        # Some Matrix magic (see Friedman (2001))
         U = ortho_group.rvs(dim=nl) if nl > 1 else 1
         D = np.diag(np.square(np.random.uniform(0.1, 2, nl)))
         V = U.dot(D).dot(U.T) if nl > 1 else D # V = U * D * U.T
-        # TODO: potential speed up through loop?
         g = np.zeros(n_samples)
+
         for i in range(n_samples):
             g[i] = np.exp(-0.5 * np.diag((Z[i,:] - mu).dot(V).dot((Z[i,:] - mu).T)))
         y += a * g
