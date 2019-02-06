@@ -1158,10 +1158,6 @@ class BaseGradientBoosting(six.with_metaclass(ABCMeta, BaseEnsemble)):
         self.tol = tol
         self.random_depth = random_depth
 
-        # add depths_ attribute if using random tree depth injection
-        if random_depth:
-            self.depths_ = np.zeros(n_estimators)
-
     def _fit_stage(self, i, X, y, y_pred, sample_weight, sample_mask,
                    random_state, X_idx_sorted, X_csc=None, X_csr=None):
         """Fit another stage of ``n_classes_`` trees to the boosting model. """
@@ -1180,7 +1176,6 @@ class BaseGradientBoosting(six.with_metaclass(ABCMeta, BaseEnsemble)):
             if self.random_depth:
                 # draw random depth btw 1 and max_depth (inclusive)
                 depth = np.random.randint(1, self.max_depth+1) 
-                #self.depths_[i] = depth
             else: 
                 depth = self.max_depth
             

@@ -31,21 +31,23 @@ def mae(y_true, y_pred):
     return mean_absolute_error(y_true, y_pred)
 
 # Constants
+# General 
+SEED = 10101010
 N_SAMPLES = 20000
 N_INPUTS = 10
 N_COMPONENTS = 20
 SIGNAL_TO_NOISE = 1.0
 N_NOISE = 5
-N_ROUNDS = 15
+N_ROUNDS = 100
 
 PARAMS = {
     'learning_rate': [0.1],
     'max_depth': [_ for _ in range(2, 9)],
-    'n_estimators': [75, 100, 125, 150, 175]
+    'n_estimators': [_ for _ in range(100, 200, 5)]
 }
 
 # Set seed
-np.random.seed(0)
+np.random.seed(SEED)
 
 # Results
 df_result = pd.DataFrame(columns=['run', 'model', 'rmse', 'mae', 'time_sec'])
